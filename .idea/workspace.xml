@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="848f8953-2d2d-4018-993d-1a0e34b7efcd" name="Default" comment="表情包制作工具">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../biaoqingbao/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../biaoqingbao/.idea/biaoqingbao.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../biaoqingbao/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../biaoqingbao/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../biaoqingbao/roundtype44.356696d8c166de93db02f5d06e4a344a.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../biaoqingbao/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../biaoqingbao/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +19,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../biaoqingbao/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2626">
-              <caret line="265" column="0" lean-forward="true" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="151" column="10" lean-forward="true" selection-start-line="151" selection-start-column="10" selection-end-line="151" selection-end-column="10" />
               <folding>
                 <element signature="e#469#4371#0" expanded="false" />
                 <element signature="e#7953#8945#0" expanded="false" />
@@ -187,7 +183,7 @@
       <workItem from="1502238398304" duration="1359000" />
       <workItem from="1502328484837" duration="1168000" />
       <workItem from="1502329671808" duration="26179000" />
-      <workItem from="1502410608843" duration="7126000" />
+      <workItem from="1502410608843" duration="7811000" />
     </task>
     <task id="LOCAL-00001" summary="表情包制作工具">
       <created>1502419051503</created>
@@ -196,16 +192,23 @@
       <option name="project" value="LOCAL" />
       <updated>1502419051503</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="表情包制作工具">
+      <created>1502419518831</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1502419518831</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82876000" />
+    <option name="totallyTimeSpent" value="83561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1109375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1109375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -443,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../biaoqingbao/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2626">
-          <caret line="265" column="0" lean-forward="true" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+        <state relative-caret-position="390">
+          <caret line="151" column="10" lean-forward="true" selection-start-line="151" selection-start-column="10" selection-end-line="151" selection-end-column="10" />
           <folding>
             <element signature="e#469#4371#0" expanded="false" />
             <element signature="e#7953#8945#0" expanded="false" />

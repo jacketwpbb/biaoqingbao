@@ -177,6 +177,8 @@ window.onload=function () {
         changeBtn.addEventListener("click",function(){
             textToAdd.championId=keyArr[Math.floor(Math.random()*keyArr.length)];
             textToAdd.summonerName="大神"+textToAdd.championId+"号";
+            document.querySelector(".container").style.display="block";
+            document.querySelector(".canvas").innerHTML="";
             util.ajax({
                 url:"./championLines.json",
                 type:"GET",
@@ -207,9 +209,7 @@ window.onload=function () {
             textArray=[];
             var texts=elem.getElementsByClassName(className);
             outerWitdh=elem.offsetWidth;
-            console.log(randomColor);
             var randomColorCopy=randomColor.slice(0);
-
             var strongColorCopy=strongColor.slice(0);
             for(var i=0;i<texts.length;i++){
                 var t=texts[i];
@@ -229,7 +229,6 @@ window.onload=function () {
             funcName=function(){
                 resz(elem,texts,textArray)
             };
-            console.log(randomColor);
             window.addEventListener("resize",funcName);
         }
         // 缩放窗口时重新定位
@@ -309,6 +308,40 @@ window.onload=function () {
             finalHtmlText=dataTextArr.join("");
             textBox.innerHTML=finalHtmlText;
             refresh(id,className);
+            var domToCvs=document.querySelector(".container");
+            var width=domToCvs.offsetWidth;
+            var height=domToCvs.offsetHeight;
+            var scaleBy = window.devicePixelRatio;
+            var canvas = document.createElement('canvas');
+            canvas.width = width * scaleBy;
+            canvas.height = height * scaleBy;
+            canvas.style.width = width * scaleBy + 'px';
+            canvas.style.height = height * scaleBy + 'px';
+            var context = canvas.getContext('2d');
+            context.scale(scaleBy, scaleBy);
+            var img=new Image();
+            img.onload=function(){
+                html2canvas(domToCvs, {
+                    canvas:canvas,
+                    onrendered: function(canvas) {
+                        var cvs=document.querySelector(".canvas");
+                        var img=document.createElement("img");
+                        img.src=canvas.toDataURL();
+                        cvs.appendChild(img);
+                        if(cvs.innerHTML){
+                            domToCvs.style.display="none";
+                        }else{
+                            document.querySelector(".loading").style.display="none";
+                        }
+                    },
+                    allowTaint:true,
+                    background:"#fff",
+                    useCORS:true
+                });
+                this.onload=null;
+            }
+            img.src="champion/"+championLines[textToAdd.championId].key+".png";
+
         }
         //更新召唤师名字和英雄头像、时间
         function addRankInfo(textToAdd,userNameId,championSrcClass,dateId){
@@ -320,9 +353,8 @@ window.onload=function () {
             var imgs=document.getElementsByClassName(championSrcClass);
             var length=imgs.length;
             for(var i=0;i<length;i++){
-                imgs[i].src="http://ossweb-img.qq.com/images/lol/img/champion/"+championLines[textToAdd.championId].key+".png";
+                imgs[i].src="champion/"+championLines[textToAdd.championId].key+".png";
             }
-
             var date1=new Date();
             var date=new Date(date1.getTime()-3600000);
             var hourStr=date.getHours()<10?"0"+date.getHours():date.getHours();

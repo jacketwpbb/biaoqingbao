@@ -17,9 +17,13 @@ html{
     zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 
 }
+
+.contentBox{
+
+}
 .container{
     max-width:450px;
-    margin:0 auto;
+
 }
 .grid p{
 
@@ -66,7 +70,7 @@ html{
     display: flex;
     justify-content: space-between;
     align-items:center;
-    padding:0 10px;
+    padding:0 10px 10px;
     color:#999;
     height: 90px;
 
@@ -76,7 +80,7 @@ html{
 }
 .rankStats .champion{
     border: 1px solid #000;
-    border-radius: 50%;
+    border-radius: 28px;
     width: 50px;
     height:50px;
 }
@@ -89,7 +93,7 @@ html{
     color: #fff;
     font-size:14px;
     font-weight: bold;
-    border-radius: 50%;
+    border-radius: 10px;
     text-align: center;
     position: absolute;
     top: -5px;
@@ -175,52 +179,25 @@ i.gold{
     height:13px;
     background-position: 0 0;
 }
-.match-honor{
-    height:50px;
-    width: 20px;
-    line-height: 20px;
-    background-color: #b00000;
-    border-radius: 3px;
-    font-size:12px;
-    color: #fff;
-    font-weight: bold;
-    writing-mode: vertical-lr;
-    text-align: center;
-    position: absolute;
+.canvas{
+    margin:0 auto;
+    max-width: 450px;
+    position: relative;
+    z-index: 10;
 }
-.fuli{
-    left:6%;
-    top:11%;
-    background-color: #b00000;
-    transform: rotate(8deg);
+.canvas img{
+    max-width: 100%;
 }
-.carry{
-    right:6%;
-    top:15%;
-    background-color: #0f562e;
-    transform: rotate(10deg);
+.loading{
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 5;
 }
-.fanpan{
-    right:10%;
-    bottom:30%;
-    background-color: #1250b4;
-    transform: rotate(-15deg);
-}
-.nianya{
-    left:5%;
-    bottom:10%;
-    background-color: #953e0d;
-    transform: rotate(-15deg);
-}
-.zhiliang{
-    left:10%;
-    bottom:43%;
-    background-color: #218a9d;
-    transform: rotate(-10deg);
-}
-.nuecai{
-    right:18%;
-    bottom:4%;
-    background-color: #963295;
-    transform: rotate(8deg);
+.xunlianying,.btn{
+    position: relative;
+    z-index: 6;
 }

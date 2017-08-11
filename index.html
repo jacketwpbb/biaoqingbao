@@ -7,68 +7,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="renderer" content="webkit">
     <title>表情包分享</title>
-    <link rel="stylesheet" href="style.css?2">
+    <link rel="stylesheet" href="style.css?3">
 </head>
 <body>
-    <div class="container">
-        <p class=" first">开黑吗？带我一个！</p>
-        <div class="grid" id="grid">
-            <!--<p class="text">艾欧尼亚<strong>第一</strong>疾风剑豪</p>-->
-            <!--<p class="text"><strong>钻石大神</strong>带你飞</p>-->
-            <!--<p class="text">断剑重铸之日 骑士归来之时</strong></p>-->
-            <!--<p class="text">输出绝对超过<strong>4396</strong>！就问你怕不怕</p>-->
-            <!--<p class="text ">死亡如风 常伴吾身！</p>-->
-            <!--<p class="text">牛s2asd上单啊批！</p>-->
-            <!--<p class="text">场均插眼<strong>50</strong>！我的真眼不要钱</p>-->
-            <!--<p class="text">治疗<strong>破万</strong>，论奶你是比不过我的</p>-->
-        </div>
-        <div class="championImageBox">
-            <img src="1.jpg" alt="" class=" image">
-            <div class="match-honor fuli">福利局</div>
-            <div class="match-honor carry">Carry局</div>
-            <div class="match-honor fanpan">翻盘局</div>
-            <div class="match-honor nianya">碾压局</div>
-            <div class="match-honor zhiliang">质量局</div>
-            <div class="match-honor nuecai">虐菜局</div>
-            <img src="" alt="yasuo" class="championImage championSrc" >
-        </div>
-        <div class="rankStats">
-            <div class="championBox">
-                <img src="" alt="" class="champion championSrc">
-                <p class="userName" id="userName">
 
-                </p>
-            </div>
-            <div class="rankText">
-                <p class="win">胜利</p>
-                <p class="mode">排位赛</p>
-            </div>
-            <div class="record">
-                <p class="KDA">66/0/6</p>
-                <p class="honor">
-                    <i class="penta"></i>
-                    <i class="kill"></i>
-                    <i class="damage"></i>
-                    <!--<i class="minion"></i>-->
-                    <i class="gold"></i>
-                </p>
-            </div>
-            <div class="time" id="date">07-30 17:38</div>
-        </div>
+     <div class="contentBox">
+         <div class="loading"></div>
+         <div class="container">
+             <p class=" first">开黑吗？带我一个！</p>
+             <div class="grid" id="grid">
+             </div>
+             <div class="championImageBox">
+                 <img src="1.jpg" alt="" class="image">
+                 <img src="" alt="" class="championImage championSrc">
+             </div>
+             <div class="rankStats">
+                 <div class="championBox">
+                     <img src="" alt="" class="champion championSrc">
+                     <p class="userName" id="userName">
+                     </p>
+                 </div>
+                 <div class="rankText">
+                     <p class="win">胜利</p>
+                     <p class="mode">排位赛</p>
+                 </div>
+                 <div class="record">
+                     <p class="KDA">66/0/6</p>
+                     <p class="honor">
+                         <i class="penta"></i>
+                         <i class="kill"></i>
+                         <i class="damage"></i>
+                         <i class="minion"></i>
+                         <i class="gold"></i>
+                     </p>
+                 </div>
+                 <div class="time" id="date">07-30 17:38</div>
+             </div>
 
-
-        <div class="xunlianying">
-            表情包分享自<a href="#">兔玩英雄训练营</a>
-        </div>
-        <div class="buttons">
-            <button class="btn" id="change">换一个英雄</button>
-            <!--<button class="btn">制作专属表情包</button>-->
-        </div>
-
+         </div>
+         <div class="canvas"></div>
+     </div>
+    <div class="xunlianying">
+        表情包分享自<a href="#">兔玩英雄训练营</a>
     </div>
-
+    <div class="buttons">
+        <button class="btn" id="change">换一个英雄</button>
+        <!--<button class="btn">制作专属表情包</button>-->
+    </div>
+    <script src="html2canvas.js"></script>
     <script src="util.js"></script>
-    <script src="index.js?5"></script>
+    <script src="index.js?6"></script>
 
 </body>
 </html>

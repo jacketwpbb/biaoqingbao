@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <title>兔玩英雄训练营表情包制作工具</title>
+    <style>
+        html{
+            font-size: 100px;
+        }
+
+        html,body,ul,li,form,p{
+            padding: 0;
+            margin:0;
+        }
+        body{
+            /*background-size: contain;*/
+            font-size: 14px;
+            background: #06090c url(//res.tuwan.com/templet/weixin/lolhero/images/background.jpg) top no-repeat;
+            background-size: 100%;
+            position: relative;
+        }
+        .contentBox{
+            padding-top:16%;
+        }
+        .championBox{
+            width: 78%;
+            text-align: center;
+            margin: 2% auto 0;
+            min-height: 180px;
+
+        }
+        .champion-link{
+            display: inline-block;
+            width: 65px;
+            height: 65px;
+            margin: 0 5px 10px;
+            -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            background-color: #d3b98a;
+            font-size: 0;
+            padding: 5px;
+
+        }
+        .champion-icon{
+            transform: scale(1.1);
+            transform-origin: center center;
+            width: 65px;
+            height:65px;
+            -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+
+            background-size: 120%;
+            background-position: -7px -7px;
+        }
+        .loading{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 5;
+        }
+
+        .loading img{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top:50%;
+            margin-top: -25px;
+            left:50%;
+            margin-left: -25px;
+        }
+        .title{
+            font-size: 0;
+            margin:0 auto 0;
+            width: 70%;
+
+        }
+        .title1{
+            font-size: 0;
+            margin:0 auto 0;
+            width: 70%;
+        }
+        .title img,.title1 img{
+            width: 100%;
+            display: block;
+
+        }
+        .tips{
+            width: 78%;
+            margin:10px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+        .tips img{
+            width: 35px;
+        }
+        .tips-text{
+            font-size: 16px;
+            color: #eee;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        .qrcode{
+           display: flex;
+            width: 80%;
+            margin:0 auto;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0 10px;
+            margin-top: 30%;
+        }
+        .qrcode img{
+            width:120px;
+            height: 120px;
+        }
+        .qrcode p{
+            padding:0;
+            color: #5eb5ea;
+
+        }
+        .summoner{
+            text-align: center;
+        }
+        .summoner .summoner-icon{
+            border-radius: 50%;
+            border: 2px solid #D3B98A;
+            width: 16%;
+            margin-top: -7%;
+        }
+        .summoner p{
+           font-size: 0.16rem;
+           color: #D3B98A;
+            font-weight: bold;
+            margin-bottom: 2%;
+
+
+        }
+        .my-btn{
+            margin-bottom: 15px;
+            display: block;
+            max-width:72%;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: solid;
+            border-width: 4px;
+            border-color: rgb(23, 58, 143);
+            border-radius: 0;
+            box-shadow: 2.828px 2.828px 0 0 #cb4b32;
+            height: 25px;
+            line-height: 25px;
+            background-color: #1ba7f9;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            box-sizing: content-box;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        @media (max-width: 370px) {
+            .qrcode img{
+                width: 70px;
+                height: 70px;
+            }
+            .championBox{
+                min-height: 150px;
+            }
+            .champion-link,.champion-icon{
+                width: 50px;
+                height: 50px;
+            }
+        }
+        @media (max-width: 380px) {
+            .qrcode {
+                margin-top: 24%;
+            }
+            .tips-text{
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 330px) {
+            .qrcode {
+                margin-top: 20%;
+            }
+            .tips-text{
+                font-size: 12px;
+            }
+
+        }
+        @media (min-width: 426px) {
+            .qrcode {
+                margin-top: 40%;
+            }
+        }
+        @media (min-width: 520px) {
+            .qrcode {
+                margin-top: 0%;
+            }
+        }
+    </style>
+    <script src="//cdn.tgp.qq.com/lol/conf/LOLGameArea.js"></script>
+    <script src="//res.tuwan.com/templet/weixin/lolhero/js/util.js"></script>
+    <script>
+        window.onload=function(){
+            // 获取需要查询的召唤师名字和大区ID
+            var urlSearch=window.location.search;
+            var urlSearchArr=urlSearch.replace(/^\?/,"").split("&");
+            var urlSearchObj={};
+            for(var i=0;i<urlSearchArr.length;i++){
+                var arr=urlSearchArr[i].split("=");
+                urlSearchObj[arr[0]]=arr[1];
+            }
+
+            util.ajax({
+                type:"jsonp",
+                url:"//app.tuwan.com/lolapi/api/getPlayerHeroes.ashx"+urlSearch,
+                success:function(data){
+                    if(!data.status){
+                        var championList=data;
+                        championList.sort(function(a,b){
+                            return b.win_num*b.win_num/b.use_num-a.win_num*a.win_num/a.use_num;
+                        });
+                        var championLines;
+                        util.ajax({
+                            url: "//res.tuwan.com/templet/weixin/lolhero/js/championLines.json",
+                            type: "GET",
+                            success: function (response) {
+                                championLines=response.data;
+                                var imgHTML="";
+                                var maxLength=6;
+                                var length=championList.length>maxLength?maxLength:championList.length;
+                                for(var i=0;i<length;i++){
+                                    var key=championLines[championList[i].champion_id].key;
+                                    var title=championLines[championList[i].champion_id].title;
+                                    var url="//wx.tuwan.com/events/lolhero_result"+urlSearch+"&championid="+championList[i].champion_id;
+                                    imgHTML+='<a href="'+url+'" class="champion-link"><div style="background-image:url(//ossweb-img.qq.com/images/lol/img/champion/'+key+'.png)" alt="'+title+'" data-url="'+url+'" class="champion-icon"></div></a>';
+                                }
+                                document.querySelector("#championBox").innerHTML=imgHTML;
+                                document.querySelector(".loading").style.display="none";
+                            },
+                            failed:function(){
+                                alert("服务器错误或网络过慢，请稍后再试");
+                            }
+                        });
+                    }else if(data.status===1){
+                        alert("你查找的用户不存在，请检查大区或召唤师名称");
+                        window.location.href="//wx.tuwan.com/events/lolhero"
+
+                    }else if(data.status===4){
+                        alert("服务器暂时无法访问，请稍后再试")
+                    }
+                }
+            });
+            util.ajax({
+                type:"jsonp",
+                url:"//app.tuwan.com/lolapi/api/getRank.ashx"+urlSearch,
+                success:function(data){
+                    if(data.status){
+                        return;
+                    }
+                    document.querySelector("#summonerIcon").setAttribute("src",data.icon);
+                    document.querySelector("#summonerName").innerText=data.name;
+
+                },
+                failed:function(){
+                    alert("服务器错误或网络过慢，请稍后再试");
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+        <div class="loading"><img src="//res.tuwan.com/templet/weixin/lolhero/images/loading.svg" alt="loading"></div>
+        <div class="contentBox">
+            <div class="title"><img src="//res.tuwan.com/templet/weixin/lolhero/images/top.png" alt="标题"></div>
+            <div class="summoner">
+                <img class="summoner-icon" id="summonerIcon" src="//cdn.tgp.qq.com/lol/images/resources/usericon/2094.png" alt="召唤师头像">
+                <p id="summonerName">加载中</p>
+            </div>
+            <div class="title1"><img src="//res.tuwan.com/templet/weixin/lolhero/images/title2.png" alt="标题">我的本命英雄</div>
+
+            <div class="championBox" id="championBox">
+            </div>
+            <div class="tips">
+                <img src="//res.tuwan.com/templet/weixin/lolhero/images/click.png" alt="">
+                <span class="tips-text">点击头像生成专属表情包</span>
+            </div>
+
+        </div>
+        <div class="qrcode">
+            <div><img src="//res.tuwan.com/templet/weixin/lolhero/images/qrcode.jpg" alt=""></div>
+            <p>排位诊断报告<br>长按扫码立即获取</p>
+
+        </div>
+        <a class="my-btn"  id="backToIndex" href="//wx.tuwan.com/events/lolhero" >回到查询页</a>
+        <!--<label for="selectId">请输入英雄名<select id="selectId" class="selectId form-control"></select></label>-->
+
+
+</body>
+</html>

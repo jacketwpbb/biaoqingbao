@@ -1,62 +1,198 @@
 <!doctype html>
-<html >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="renderer" content="webkit">
-    <title>表情包分享</title>
-    <link rel="stylesheet" href="style.css?3">
+    <title>兔玩英雄训练营表情包制作工具</title>
+    <style>
+        html{
+            font-size: 100px;
+        }
+
+        html,body,ul,li,form{
+            padding: 0;
+            margin:0;
+        }
+        body{
+            background: #06090c url(//res.tuwan.com/templet/weixin/lolhero/images/background.jpg) top no-repeat;
+            background-size: cover;
+        }
+        .contentBox{
+        }
+        .form{
+            z-index: 20;
+            position: relative;
+            margin: 10px auto 0;
+            width: 70%;
+            color: #ededed;
+        }
+        .inputBox{
+            background: url("//res.tuwan.com/templet/weixin/lolhero/images/input-background.png") no-repeat;
+            background-size: 100%;
+            padding-top: 70%;
+        }
+        .form label{
+            text-align: center;
+            font-size: 0.16rem;
+            display: block;
+        }
+        .first-label{
+            margin-top: -59%;
+            margin-bottom: 5px;
+        }
+        .form-control{
+            display: block;
+            width: 72%;
+            max-width: 90%;
+            margin: 0 auto;
+            border-radius: 0;
+            border-style: solid;
+            border-width: 4px;
+            border-color: rgb(23, 58, 143);
+            box-shadow: 2.828px 2.828px 0px 0px #cb4b32;
+            box-sizing: content-box;
+            height: 25px;
+        }
+        .form-control:active,.form-control:focus{
+
+            border-radius: 0;
+            border-style: solid;
+            border-width: 4px;
+            border-color: rgb(23, 58, 143);
+            box-shadow: 2.828px 2.828px 0px 0px #cb4b32;
+            box-sizing: content-box;
+        }
+        h1{
+            text-align: center;
+        }
+        .form label{
+            display: block;
+
+        }
+
+        ul,li{
+            list-style: none;
+        }
+
+        .my-btn{
+            margin-top: 5%;
+            display: block;
+            width:72%;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: solid;
+            border-width: 4px;
+            border-color: rgb(23, 58, 143);
+            border-radius: 0;
+            box-shadow: 2.828px 2.828px 0 0 #cb4b32;
+            height: 25px;
+            background-color: #1ba7f9;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            box-sizing: content-box;
+        }
+        .title{
+            font-size: 0;
+            margin:15% auto 0;
+            width: 70%;
+
+        }
+        .title img{
+            width: 100%;
+            display: block;
+
+        }
+        @media (max-width: 400px) {
+            html {
+                font-size: 90px;
+            }
+            .form-control{
+                height: 23px;
+                font-size: 12px;
+                line-height: 23px;
+            }
+        }
+        @media (max-width: 370px) {
+            html {
+                font-size: 80px;
+            }
+            .honor i.minion{
+                display: none;
+            }
+
+        }
+        @media (max-width: 330px) {
+
+            label.first-label{
+                margin-top: -62%;
+            }
+
+        }
+    </style>
+    <script src="//cdn.tgp.qq.com/lol/conf/LOLGameArea.js"></script>
+    <script src="//res.tuwan.com/templet/weixin/lolhero/js/util.js"></script>
+
+    <script>
+        window.onload=function(){
+            var player,areaid;
+            player=document.getElementById("player");
+            areaid=document.getElementById("areaid");
+            var form=document.getElementById("form");
+            var championLines;
+            //获取英雄
+            util.ajax({
+                url:"//res.tuwan.com/templet/weixin/lolhero/js/championLines.json",
+                type:"GET",
+                success:function(response){
+//                    if(localStorage.player){
+//                        player.value=localStorage.player;
+//                    }
+                    championLines=response.data;
+                    var areaTxt="";
+                    for(var j in window["PLS"]["LOLGameArea"]){
+                        var selected="";
+                        if(localStorage.areaid&&localStorage.areaid===j){
+                            selected="selected";
+                            log(window["PLS"]["LOLGameArea"][j].name)
+                        }
+                        areaTxt+='<option value="'+j+'" '+selected+'>'+window["PLS"]["LOLGameArea"][j].name+'</option>';
+                    }
+                    areaid.innerHTML=areaTxt;
+
+                    form.addEventListener("submit",function(e){
+                        e.preventDefault();
+                        if(player.value){
+                            localStorage.setItem('player',player.value);
+                            localStorage.setItem('areaid',areaid.value);
+                            var url="//wx.tuwan.com/events/lolhero_selectChampion?player="+player.value+"&areaid="+areaid.value;
+                            window.location.href=url;
+                        }else{
+                            alert("请输入召唤师名称");
+                        }
+                    });
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-
-     <div class="contentBox">
-         <div class="loading"></div>
-         <div class="container">
-             <p class=" first">开黑吗？带我一个！</p>
-             <div class="grid" id="grid">
-             </div>
-             <div class="championImageBox">
-                 <img src="1.jpg" alt="" class="image">
-                 <img src="" alt="" class="championImage championSrc">
-             </div>
-             <div class="rankStats">
-                 <div class="championBox">
-                     <img src="" alt="" class="champion championSrc">
-                     <p class="userName" id="userName">
-                     </p>
-                 </div>
-                 <div class="rankText">
-                     <p class="win">胜利</p>
-                     <p class="mode">排位赛</p>
-                 </div>
-                 <div class="record">
-                     <p class="KDA">66/0/6</p>
-                     <p class="honor">
-                         <i class="penta"></i>
-                         <i class="kill"></i>
-                         <i class="damage"></i>
-                         <i class="minion"></i>
-                         <i class="gold"></i>
-                     </p>
-                 </div>
-                 <div class="time" id="date">07-30 17:38</div>
-             </div>
-
-         </div>
-         <div class="canvas"></div>
-     </div>
-    <div class="xunlianying">
-        表情包分享自<a href="#">兔玩英雄训练营</a>
+    <div class="contentBox">
+        <div class="title">
+             表情包制作工具
+            <img src="//res.tuwan.com/templet/weixin/lolhero/images/title1.png">
+        </div>
+        <form action="" class="form" id="form" >
+            <div class="inputBox">
+                <label for="player" class="first-label">输入召唤师名称<input  name="player" id="player" class="form-control"></label>
+                <label for="areaid">选择大区<select name="areaid" id="areaid" class="form-control"></select></label>
+            </div>
+            <input type="submit" id="submit" class="btn btn-primary my-btn" value="确定">
+        </form>
     </div>
-    <div class="buttons">
-        <button class="btn" id="change">换一个英雄</button>
-        <!--<button class="btn">制作专属表情包</button>-->
-    </div>
-    <script src="html2canvas.js"></script>
-    <script src="util.js"></script>
-    <script src="index.js?6"></script>
 
 </body>
 </html>
